@@ -1,0 +1,47 @@
+class Solution {
+    public List<List<Integer>> shiftGrid(int[][] grid, int k) {
+         List<List<Integer>> ans=new ArrayList<>();
+         int row=grid.length;
+         int col=grid[0].length;
+         int index=0;
+         int result[]=new int [row*col];
+         int answer[][]=new int[row][col];
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                result[index]=grid[i][j];
+                index++;
+            }
+        }
+        for(int i=1;i<=k;i++)
+        {
+            int temp=result[result.length-1];
+            for(int j=result.length-2;j>=0;j--)
+            {
+               result[j+1]=result[j];
+            }
+            result[0]=temp;
+        }
+        index=0;
+        for(int i=0;i<row;i++)
+        {
+            for(int j=0;j<col;j++)
+            {
+                answer[i][j]=result[index];
+                index++;
+            }
+        }
+        for(int i=0;i<row;i++)
+        {
+            List<Integer>rowlist=new ArrayList<>();
+            for(int j=0;j<col;j++)
+            {
+              rowlist.add(answer[i][j]);
+            }
+            ans.add(rowlist);
+        }
+        return ans;
+         
+    }
+}
