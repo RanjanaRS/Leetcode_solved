@@ -1,0 +1,19 @@
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+       int answer[]=new int[nums.length];
+      int k=0;
+      int i=n;
+      int j=0;
+      int mid=n;
+    while(j<mid && i<nums.length)
+    {
+        answer[k]=nums[j];
+        k++;
+        answer[k]=nums[i];
+        k++;
+        i++;
+        j++;
+    }
+    return answer;
+    }
+}
