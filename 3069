@@ -1,0 +1,40 @@
+class Solution {
+    public int[] resultArray(int[] nums) {
+     ArrayList<Integer>arr1=new ArrayList<>();
+      ArrayList<Integer>arr2=new ArrayList<>();
+      int last=nums[0];
+      int seclast=nums[1];
+      arr1.add(nums[0]);
+       arr2.add(nums[1]);
+       int i=2;
+       while(i<nums.length)
+       {
+        if(last>seclast)
+        {
+            arr1.add(nums[i]);
+            last=nums[i];
+        }
+        else{
+            arr2.add(nums[i]); 
+            seclast=nums[i];
+        }
+        i++;
+       }
+        int result[]=new int[nums.length];
+     int k=0;
+     for(i=0;i<arr1.size();i++)
+     {
+        result[k]=arr1.get(i);
+        k++;
+     }
+      for(i=0;i<arr2.size();i++)
+     {
+        result[k]=arr2.get(i);
+        k++;
+     }
+     return result;
+    }
+}
+
+
+
